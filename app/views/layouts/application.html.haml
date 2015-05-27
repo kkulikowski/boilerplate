@@ -1,0 +1,25 @@
+!!!
+%html
+  %head
+    %title Gimme Food
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+
+  %body
+    %nav.navbar.navbar-inverse.navbar-static-top
+      #navbar.collapse.navbar-collapse
+        %ul.nav.navbar-nav
+          %li= link_to 'Home', '#'
+          %li= link_to 'Users', '#'
+          
+    .container
+      - if notice
+      .alert.alert-success= notice
+      - if alert
+      .alert.alert-danger= alert
+
+      = yield
+
+  %footer
+    %p.text-center.info-text-footer GimmeFood SPA
